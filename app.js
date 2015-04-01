@@ -30,7 +30,7 @@
 
   app.use(cookieParser());
 
-  app.use(express["static"](path.join(__dirname, 'gen')));
+  app.use(express["static"](path.join(__dirname, 'mobile/www')));
 
   app.use(function(req, res, next) {
     var err;

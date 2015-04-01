@@ -2,11 +2,20 @@
 (function() {
   var app;
 
-  app = angular.module('PublicApp', ['ngRoute', 'oc.modal', 'ui.bootstrap', 'ngCordova']);
+  app = angular.module('PublicApp', ['ngRoute', 'oc.modal', 'ui.bootstrap', 'ngCordova', 'ngMaterial']);
 
   app.controller('IndexController', require('./index-controller'));
 
-  app.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {}]);
+  app.config([
+    '$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
+      return $routeProvider.when('/', {
+        controller: require('./home/home'),
+        templateUrl: 'home/home.html'
+      }).otherwise({
+        redirectTo: '/'
+      });
+    }
+  ]);
 
   module.exports = app;
 

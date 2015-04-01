@@ -1,8 +1,9 @@
 app = angular.module 'PublicApp', [
 	'ngRoute'
 	'oc.modal'
-	'ui.bootstrap',
+	'ui.bootstrap'
 	'ngCordova'
+	'ngMaterial'
 ]
 
 app.controller 'IndexController', require './index-controller'
@@ -11,9 +12,9 @@ app.controller 'IndexController', require './index-controller'
 app.config ['$httpProvider','$routeProvider', ($httpProvider,$routeProvider) ->
 	# $httpProvider.interceptors.push 'LoginInterceptor'
 
-	# $routeProvider.when '/',
-	# 	controller : require './home/home'
-	# 	templateUrl : 'home/home.html'
+	$routeProvider.when '/',
+		controller : require './home/home'
+		templateUrl : 'home/home.html'
 	# .when '/contact',
 	# 	controller : require './contact/contact'
 	# 	templateUrl : '/contact/contact.html'
@@ -23,8 +24,8 @@ app.config ['$httpProvider','$routeProvider', ($httpProvider,$routeProvider) ->
 	# .when '/change-password',
 	# 		controller : require './change-password/change-password'
 	# 		templateUrl : '/change-password/change-password.html'
-	# .otherwise
-	# 	redirectTo : '/'
+	.otherwise
+		redirectTo : '/'
 ]
 
 module.exports = app
